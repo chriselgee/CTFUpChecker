@@ -1,0 +1,22 @@
+[
+    {
+        "name":"Web of Shells flag check",
+        "cmd":"curl -s http://170.187.136.12:2912/command.php?cmd=cat+flag.txt&password=catsarecool",
+        "expect":"f1@g{unaware_p0t_g3m_k1ll3r}"
+    },
+    {
+        "name":"Zero Thor key check",
+        "cmd":"ssh -i ./thor.pem thor@66.228.49.18 whoami",
+        "expect":"thor"
+    },
+    {
+        "name":"Zero /etc/shadow check",
+        "cmd":"ssh -i ./root.pem root@66.228.49.18 /usr/bin/md5sum /etc/shadow",
+        "expect":"7c12adb339469d2d7d4f4949723a9551"
+    },
+    {
+        "name":"Packet Joy Flag1 check",
+        "cmd":"ssh -i ./thor.pem thor@66.228.49.18 /usr/bin/sudo /usr/sbin/tcpdump -nnA -i any udp and port 50000 -c 1",
+        "expect":"f1@g{bpfftw}"
+    }
+]
